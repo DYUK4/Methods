@@ -8,28 +8,34 @@ public class Main {
         int a = input.nextInt();
         int b = input.nextInt();
 
-        int c = sum(a,b);
-        System.out.println("%d + %d = %d".formatted(a,b,c));
-        System.out.println("%d - %d = %d".formatted(a,b,Diff(a,b)));
-        System.out.println("%d * %d = %d".formatted(a,b,Prod(a,b)));
-        System.out.println("%d / %d = %f".formatted(a,b,Quot(a,b)));
+        int c = Math.sum(a, b);
+        System.out.println("%d + %d = %d".formatted(a, b, c));
+        System.out.println("%d - %d = %d".formatted(a, b, Math.Diff(a, b)));
+        System.out.println("%d * %d = %d".formatted(a, b, Math.Prod(a, b)));
+        System.out.println("%d / %d = %f".formatted(a, b, Math.Quot(a, b)));
 
     }
 
-    static int sum(int a, int b){
+
+}
+
+class Math {
+    static int sum(int a, int b) {
         int c = a + b;
         return c;
     }
-    static int Diff(int a, int b){
+
+    static int Diff(int a, int b) {
         return a - b;
     }
-    static int Prod(int a, int b){
+
+    static int Prod(int a, int b) {
         //Product - Произведение
         return a * b;
     }
-    static double Quot(int a, int b){
-        // Quotient - частное
-        return (double)a / b;
-    }
 
+    static double Quot(int a, int b) {
+        // Quotient - частное
+        return (double) a / b;
+    }
 }
