@@ -18,20 +18,24 @@ public class Main {
         boolean isInt = input.hasNextInt();
         if(isInt){
             int n = input.nextInt();
-            System.out.println("Факториал числа %d = %d".formatted(n,factoria(n)));
+            System.out.println("Факториал числа %d!= %.0f".formatted(n,factoria(n)));
         }else{
             System.out.println("Ошибка ввода!");
         }
 ////////////////////////////////// degree ///////////////////////////////////////////////////////////////////////////////////////////
         System.out.print("Введите целое число и степень: ");
-        int number = input.nextInt();
-        //System.out.print("Введите степень: ");
-        int degre = input.nextInt();
-        System.out.print("%d ^ %d = %.0f".formatted(number, degre,degree(number, degre)));
+        boolean num = input.hasNextInt();
+        if(num) {
+            int number = input.nextInt();
+            int degre = input.nextInt();
+            System.out.print("%d ^ %d = %.0f".formatted(number, degre, degree(number, degre)));
+        }else{
+            System.out.println("Ошибка ввода!");
+        }
     }
 //======================================================
 //================ degree ==============================
-    static double degree(int number, int degre){
+    static float degree(int number, int degre){
         int sum1 = number;
         for(int i = 1; i < degre; i++) {
             sum1 = sum1 * number;
@@ -40,7 +44,7 @@ public class Main {
     }
 //================ factoria ==========================
 
-    static int factoria(int n){
+    static double factoria(int n){
         if(n==1)
             return 1;
         return n * factoria(n-1);
