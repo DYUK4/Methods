@@ -7,7 +7,7 @@ public class Main {
         factorial f = new factorial();
         System.out.print("Введите число: ");
         int n = input.nextInt();
-        System.out.println("%d != %d".formatted(n, f.fact(n)));
+        System.out.println("%d != %.0f".formatted(n, f.fact(n)));
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         degree d = new degree();
         System.out.print("Введите целое число и степень: ");
@@ -19,7 +19,7 @@ public class Main {
 //=================================================================================================================
 class factorial {
 
-    int fact(int n) {
+    double fact(int n) {
         if (n == 1)
             return 1;
         return n * fact(n - 1);
