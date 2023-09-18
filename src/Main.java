@@ -13,6 +13,7 @@ public class Main {
         System.out.println("%d - %d = %d".formatted(a, b, Math.Diff(a, b)));
         System.out.println("%d * %d = %d".formatted(a, b, Math.Prod(a, b)));
         System.out.println("%d / %d = %f".formatted(a, b, Math.Quot(a, b)));
+        
 
     }
 
