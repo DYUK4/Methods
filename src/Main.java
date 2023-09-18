@@ -13,6 +13,21 @@ public class Main {
         System.out.println("%d - %d = %d".formatted(a,b,Diff(a,b)));
         System.out.println("%d * %d = %d".formatted(a,b,Prod(a,b)));
         System.out.println("%d / %d = %f".formatted(a,b,Quot(a,b)));
+        System.out.print("Введите целое число: ");
+        boolean isInt = input.hasNextInt();
+        if(isInt){
+            int n = input.nextInt();
+            System.out.println("Факториал числа %d = %d".formatted(n,factoria(n)));
+        }else{
+            System.out.println("Ошибка ввода!");
+        }
+
+    }
+
+    static int factoria(int n){
+        if(n==1)
+            return 1;
+        return n * factoria(n-1);
 
     }
 
