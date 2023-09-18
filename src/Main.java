@@ -2,20 +2,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        factorial f = new factorial();
         Scanner input = new Scanner(System.in);
+
+        factorial f = new factorial();
         System.out.print("Введите число: ");
         int n = input.nextInt();
-
-        int sum = f.fact(n);
-        System.out.println("Факториал числа %d = %d".formatted(n, f.fact(n)));
+        System.out.println("%d != %d".formatted(n, f.fact(n)));
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        degree d = new degree();
+        System.out.print("Введите целое число и степень: ");
+        int number = input.nextInt();
+        int degre = input.nextInt();
+        System.out.print("%d ^ %d = %.0f".formatted(number, degre,d.deg(number, degre)));
     }
 }
-
+//=================================================================================================================
 class factorial {
+
     int fact(int n) {
         if (n == 1)
             return 1;
         return n * fact(n - 1);
+    }
+}
+//==================================================================================================================
+class degree {
+
+    double deg(int number, int degre) {
+        int sum1 = number;
+        for (int i = 1; i < degre; i++) {
+            sum1 = sum1 * number;
+        }
+        return sum1;
     }
 }
