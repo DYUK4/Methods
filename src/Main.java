@@ -74,6 +74,7 @@ public class Main {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Scanner input = new Scanner(System.in);
 
+
         factorial f = new factorial();
         System.out.print("Введите число: ");
         int n = input.nextInt();
@@ -83,7 +84,17 @@ public class Main {
         System.out.print("Введите целое число и степень: ");
         int number = input.nextInt();
         int degre = input.nextInt();
-        System.out.print("%d ^ %d = %.0f".formatted(number, degre,d.deg(number, degre)));
+        System.out.print("%d ^ %d = %.0f".formatted(number, degre,math.power(number, degre)));
+        System.out.println();
+        System.out.print("число вычисление факториала: ");
+        int nu = input.nextInt();
+        System.out.print("%d != %d".formatted(nu,math.Factorial(nu)));
+        System.out.println();
+        System.out.print("Введи число:: ");
+        int a = input.nextInt();
+        int num = input.nextInt();
+        System.out.print("%.0f ^ %d = %f".formatted((double)a,num,math.Power(a,num)));
+
     }
 }
 //=================================================================================================================
@@ -99,10 +110,50 @@ class factorial {
 class degree {
 
     double deg(int number, int degre) {
-        int sum1 = number;
+        int sum1 = number;// 5
         for (int i = 1; i < degre; i++) {
             sum1 = sum1 * number;
         }
         return sum1;
     }
+
 }
+class math {
+   static double power(double number, int degre) {
+        if (degre == 1) {
+            return number;
+        } else if (degre == 0) {
+            return 1;
+        } else if (degre > 0) {
+            number = number * power(number, degre - 1);
+            return number;
+        } else if (degre < 0) {
+            number = 1 / power(number, (-1 * degre));
+            return number;
+        }
+        return number;
+    }
+
+    static int Factorial(int nu){
+       int f = 1;
+       for(int i = 1; i <= nu; i++){
+           f *= i;
+       }
+       return f;
+    }
+
+    static double Power(double a, int num){
+       double N = 1;
+
+       if(num < 0){
+           a = 1 / a;
+           num =- num;
+       }
+
+       for(int i = 0; i < num; i++){
+           N *= a;
+       }
+       return N;
+    }
+}
+
