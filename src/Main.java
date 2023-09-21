@@ -1,73 +1,84 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+        Scanner kb = new Scanner(System.in);
+        System.out.print("Введите размер массива: ");
+        int n = kb.nextInt();
+        int[] arr = new int[n];
 
-        Scanner input = new Scanner(System.in);
-        System.out.print("Введите два числа: ");
-        int a = input.nextInt();
-        int b = input.nextInt();
+        FillRand(arr);
+        Print(arr);
+        Sort(arr);
+        Print(arr);
 
-        int c = sum(a,b);
-        System.out.println("%d + %d = %d".formatted(a,b,c));
-        System.out.println("%d - %d = %d".formatted(a,b,Diff(a,b)));
-        System.out.println("%d * %d = %d".formatted(a,b,Prod(a,b)));
-        System.out.println("%d / %d = %f".formatted(a,b,Quot(a,b)));
-//////////////////////////////// factoria //////////////////////////////////////////////////////////////////////////
-        System.out.print("Введите целое число: ");
-        boolean isInt = input.hasNextInt();
-        if(isInt){
-            int n = input.nextInt();
-            System.out.println("Факториал числа %d!= %.0f".formatted(n,factoria(n)));
-        }else{
-            System.out.println("Ошибка ввода!");
-        }
-////////////////////////////////// degree ///////////////////////////////////////////////////////////////////////////////////////////
-        System.out.print("Введите целое число и степень: ");
-        boolean num = input.hasNextInt();
-        if(num) {
-            int number = input.nextInt();
-            int degre = input.nextInt();
-            System.out.print("%d ^ %d = %.0f".formatted(number, degre, degree(number, degre)));
-        }else{
-            System.out.println("Ошибка ввода!");
+        double[] brr = new double[n];
+        FillRand(brr, 0 , 100);
+        Print(brr);
+    }
+    static void FillRand(int[] arr)
+    {
+        Random rand = new Random(0);
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = rand.nextInt(100);
         }
     }
-//======================================================
-//================ degree ==============================
-    static float degree(int number, int degre){
-        int sum1 = number;
-        for(int i = 1; i < degre; i++) {
-            sum1 = sum1 * number;
+    static void FillRand(int[] arr, int minRand, int maxRand)
+    {
+        Random rand = new Random(0);
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = rand.nextInt(minRand, maxRand);
         }
-        return sum1;
     }
-//================ factoria ==========================
-
-    static double factoria(int n){
-        if(n==1)
-            return 1;
-        return n * factoria(n-1);
+    static void FillRand(double[] arr)
+    {
+        Random rand = new Random(0);
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = rand.nextDouble(100);
+        }
     }
-//=================================================
-    static int sum(int a, int b){
-        int c = a + b;
-        return c;
+    static void FillRand(double[] arr, int minRand, int maxRand)
+    {
+        Random rand = new Random(0);
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = rand.nextDouble(minRand, maxRand);
+        }
     }
-//==================================================
-    static int Diff(int a, int b){
-        return a - b;
+    static void Print(int[] arr)
+    {
+        for(int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
     }
-//====================================================
-    static int Prod(int a, int b){
-        //Product - Произведение
-        return a * b;
+    static void Print(double[] arr)
+    {
+        for(int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
     }
-//========================================================
-    static double Quot(int a, int b){
-        // Quotient - частное
-        return (double)a / b;
+    static void Sort(int[] arr)
+    {
+        for(int i = 0; i < arr.length; i++)
+        {
+            for(int j = i + 1; j < arr.length; j++)
+            {
+                /*if(arr[j] < arr[i])
+                {
+                    int buffer = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = buffer;
+                }*/
+            }
+        }
     }
-//===========================================================
-
 }
